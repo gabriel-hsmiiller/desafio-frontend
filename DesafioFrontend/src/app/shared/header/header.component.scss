@@ -1,8 +1,7 @@
-@mixin display-flex($flex, $flex-direction){
-    display: flex;
-    flex-direction: $flex-direction;
-    flex: $flex;
-}
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+$header-color: #0A0F1E;
 
 .material-icons, .material-icons-outlined{
     cursor: default;
@@ -13,7 +12,7 @@
     height: 60px;
     width: 95vw;
     left: 5vw;
-    background-color: #0A0F1E;
+    background-color: $header-color;
     @include display-flex(1, row);
     justify-content: space-between;
 
@@ -25,7 +24,7 @@
         .title{
             @include display-flex(1, row);
             align-items: center;
-            border-left: solid 4px #E87C00;
+            border-left: solid 4px $orange;
             color: white;
             padding-left: 10px;
         }
@@ -58,7 +57,7 @@
                 @include display-flex(1, row);
                 justify-content: flex-end;
                 margin-right: 15px;
-                color: rgba(256,256,256,0.4);
+                color: rgba(white,0.4);
             }
         }
     }
@@ -80,7 +79,7 @@
             .addon-has-notifications{
                 width: 5px;
                 height: 5px;
-                background-color: #E87C00;
+                background-color: $orange;
                 border-radius: 50%;
                 position: absolute;
                 right: 0;
@@ -90,7 +89,7 @@
         .user-picture{
             border-radius: 50%;
             background-color: #252227;
-            color: #E87C00;
+            color: $orange;
             max-width: 40px;
             height: 40px;
             @include display-flex(1, row);
@@ -109,7 +108,7 @@
     right: 0;
     min-height: 10vh;
     max-height: 50vh;
-    background-color: #252227;
+    background-color: $header-color;
     width: 300px;
     top: 60px;
 }
@@ -119,7 +118,7 @@
     right: 0;
     min-height: 10vh;
     max-height: 50vh;
-    background-color: #252227;
+    background-color: $header-color;
     width: 300px;
     top: 60px;
     color: white;

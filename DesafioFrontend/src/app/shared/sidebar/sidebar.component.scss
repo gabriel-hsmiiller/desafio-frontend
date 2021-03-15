@@ -1,11 +1,14 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+$sidebar-color: #070A14;
+
 .sidebar {
     position: fixed;
     width: 5vw;
     height: 100vh;
-    background-color: #070A14;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+    background-color: $sidebar-color;
+    @include display-flex(1, column);
 
     .logo{
         flex: 1;
@@ -15,13 +18,11 @@
     }
     
     .navigation{
-        flex: 3;
-        display: flex;
-        flex-direction: column;
+        @include display-flex(3, column);
         padding-top: 20px;
 
         .paths{
-            color: #a0a0a0;
+            color: $light-gray;
             padding: 10px;
             margin: 0 auto;
             cursor: pointer;
@@ -33,10 +34,8 @@
         }
 
         .active{
-            $color: #E87C00;
-
-            color: $color;
-            border-left-color: $color;
+            color: $orange;
+            border-left-color: $orange;
         }
     }
     
@@ -46,7 +45,7 @@
         max-width: 40px;
         margin: 10px auto;
 
-        color: #a0a0a0;
+        color: $light-gray;
         margin: auto;
         cursor: pointer;
 
