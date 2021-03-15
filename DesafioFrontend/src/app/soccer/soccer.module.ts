@@ -9,7 +9,12 @@ import { SoccerComponent } from './soccer.component';
 
 
 @NgModule({
-  declarations: [MatchDetailsComponent, LeagueListComponent, LeagueDetailsComponent, SoccerComponent],
+  declarations: [
+    SoccerComponent,
+    MatchDetailsComponent, 
+    LeagueListComponent, 
+    LeagueDetailsComponent, 
+  ],
   imports: [
     CommonModule,
     SoccerRoutingModule

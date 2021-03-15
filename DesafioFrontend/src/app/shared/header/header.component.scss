@@ -1,0 +1,127 @@
+@mixin display-flex($flex, $flex-direction){
+    display: flex;
+    flex-direction: $flex-direction;
+    flex: $flex;
+}
+
+.material-icons, .material-icons-outlined{
+    cursor: default;
+}
+
+.header {
+    position: fixed;
+    height: 60px;
+    width: 95vw;
+    left: 5vw;
+    background-color: #0A0F1E;
+    @include display-flex(1, row);
+    justify-content: space-between;
+
+    .site-title{
+        height: 40px;
+        margin: 10px 20px;
+        @include display-flex(1, row);
+
+        .title{
+            @include display-flex(1, row);
+            align-items: center;
+            border-left: solid 4px #E87C00;
+            color: white;
+            padding-left: 10px;
+        }
+    }
+
+    .search{
+        @include display-flex(3, row);
+        justify-content: space-between;
+        align-items: center;
+
+        .control{
+            @include display-flex(1, row);
+            justify-content: space-between;
+            align-items: center;
+            height: 30px;
+            border-radius: 15px;
+            background-color: rgba(white,0.1);
+            margin: auto 30px;
+
+            input{
+                flex: 3;
+                background-color: transparent;
+                border-color: transparent;
+                outline: none;
+                height: 30px;
+                margin-left: 15px;
+            }
+
+            span{
+                @include display-flex(1, row);
+                justify-content: flex-end;
+                margin-right: 15px;
+                color: rgba(256,256,256,0.4);
+            }
+        }
+    }
+
+    .user-status{
+        @include display-flex(1, row);
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        padding-right: 10px;
+
+        .material-icons,.material-icons-outlined{
+            cursor: pointer;
+        }
+
+        .notifications{
+            position: relative;
+
+            .addon-has-notifications{
+                width: 5px;
+                height: 5px;
+                background-color: #E87C00;
+                border-radius: 50%;
+                position: absolute;
+                right: 0;
+            }
+        }
+
+        .user-picture{
+            border-radius: 50%;
+            background-color: #252227;
+            color: #E87C00;
+            max-width: 40px;
+            height: 40px;
+            @include display-flex(1, row);
+            align-items: center;
+            justify-content: center;
+
+            .picture, .no-picture{
+                margin: auto;
+            }
+        }
+    }
+}
+
+.notifications-list{
+    position: fixed;
+    right: 0;
+    min-height: 10vh;
+    max-height: 50vh;
+    background-color: #252227;
+    width: 300px;
+    top: 60px;
+}
+
+.more-options{
+    position: fixed;
+    right: 0;
+    min-height: 10vh;
+    max-height: 50vh;
+    background-color: #252227;
+    width: 300px;
+    top: 60px;
+    color: white;
+    padding: 20px;
+}

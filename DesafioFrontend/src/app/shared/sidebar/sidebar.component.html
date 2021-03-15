@@ -1,1 +1,15 @@
-<p>sidebar works!</p>
+<div class="sidebar">
+    <div class="logo"></div>
+    <div class="navigation">
+        <div 
+            *ngFor="let route of routes" 
+            (click)="navigate(route.path)" 
+            class="paths" 
+            [ngClass]="{ 'active' : checkRoute(route.path) }">
+            <span class="material-icons" [title]="route.label">{{ route.icon }}</span>
+        </div>
+    </div>
+    <div class="logout">
+        <span class="material-icons" title="Fazer logoff">logout</span>
+    </div>
+</div>
