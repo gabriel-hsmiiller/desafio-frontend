@@ -1,1 +1,74 @@
-<p>match-details works!</p>
+<div class="match" *ngIf="objectKeys(_matchInfo).length > 0">
+    <div class="header">
+        <div class="score">
+            <div class="scores">
+                <img [src]="home.logo" title=" " />
+                <div class="wrap-points">
+                    <h1>{{ home.score }} <span class="material-icons">close</span> {{ visitors.score }}</h1>
+                </div>
+                <img [src]="visitors.logo" title=" " />
+            </div>
+            <div class="names">
+                <span>{{ home.name }}</span>
+                <span>{{ visitors.name }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="details">
+        <div class="local">
+            <span class="material-icons">public</span> 
+            <span>Local: {{ matchInfo.local }} </span>
+        </div>
+    </div>
+    <div class="statistics">
+        <table>
+            <tbody>
+                <tr>
+                    <td>{{ home.goals }}</td>
+                    <td>Gols</td>
+                    <td>{{ visitors.goals }}</td>
+                </tr>
+                <tr>
+                    <td>{{ home.yellows }}</td>
+                    <td>Cartões amarelos</td>
+                    <td>{{ visitors.yellows }}</td>
+                </tr>
+                <tr>
+                    <td>{{ home.reds }}</td>
+                    <td>Cartões vermelhos</td>
+                    <td>{{ visitors.reds }}</td>
+                </tr>
+                <tr>
+                    <td>{{ home.penalties }}</td>
+                    <td>Penalidades</td>
+                    <td>{{ visitors.penalties }}</td>
+                </tr>
+                <tr>
+                    <td>{{ home.shoots }}</td>
+                    <td>Chutes à gol</td>
+                    <td>{{ visitors.shoots }}</td>
+                </tr>
+                <tr>
+                    <td>{{ home.rebounds }}</td>
+                    <td>Rebotes</td>
+                    <td>{{ visitors.rebounds }}</td>
+                </tr>
+                <tr>
+                    <td>{{ home.subs }}</td>
+                    <td>Substituições</td>
+                    <td>{{ visitors.subs }}</td>
+                </tr>
+                <tr>
+                    <td>{{ home.utilization }}%</td>
+                    <td>Aproveitamento</td>
+                    <td>{{ visitors.utilization }}%</td>
+                </tr>
+                <tr>
+                    <td>{{ home.ballPoss }}%</td>
+                    <td>Média de posse de bola</td>
+                    <td>{{ visitors.ballPoss }}%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

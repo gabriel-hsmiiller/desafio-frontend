@@ -1,0 +1,60 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.list{
+    width: 20vw;
+
+    .header-list{
+        height: 100px;
+        background-color: black;
+    }
+
+    .body-list{
+        .league{
+            border-bottom: solid 1px $light-gray;
+
+            &:first-child{
+                border-top: solid 1px $light-gray;
+            }
+        }
+    }
+}
+
+.list-minimized{
+    width: 100%;
+
+    .header-list{
+        height: 50px;
+    }
+}
+
+.list, .list-minimized{
+    height: 100%;
+    
+    .header-list{
+        width: 100%;
+        @include display-flex(1,row);
+        justify-content: center;
+        align-items: center;
+        color: white;
+
+        .material-icons{
+            cursor: pointer;
+        }
+    }
+
+    .body-list{
+        @include display-flex(1,column);
+        justify-content: center;
+        align-items: stretch;
+
+        .league{
+            @include display-flex(1,row);
+            justify-content: flex-start;
+            padding: 10px;
+            height: 50px;
+            color: white;
+        }
+        
+    }
+}

@@ -1,0 +1,174 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.league{
+    background-color: white;
+    height: 100%;
+    width: 50vw;
+    @include display-flex(1,column);
+    justify-content: stretch;
+    align-items: stretch;
+
+    .header{
+        height: 5vh;
+        @include display-flex(1, row);
+        justify-content: stretch;
+        align-items: center;
+
+        .date-events{
+            @include display-flex(1, row);
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        .events-count{
+            @include display-flex(1, row);
+            justify-content: flex-end;
+            padding: 10px;
+
+            .counter-wrap{
+                @include display-flex(1, column);
+                align-items: center;
+
+                .label{
+                    font-size: 12px;
+                }
+    
+                .counter{
+                    padding: 5px;
+                    background-color: $orange;
+                    border-radius: 10px;
+                    color: white;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .search{
+        height: 10vh;
+        @include display-flex(1, row);
+        align-items: center;
+        justify-content: stretch;
+        
+        .filters{
+            @include display-flex(1, row);
+            justify-content: flex-start;
+            align-items: center;
+            height: 30px;
+            border-radius: 15px;
+            background-color: rgba(black,0.1);
+            margin: auto 10px;
+
+            
+            input{
+                flex: 3;
+                background-color: transparent;
+                border-color: transparent;
+                outline: none;
+                height: 30px;
+                margin-left: 15px;
+            }
+            
+            button{
+                background-color: $orange;
+                border: none;
+                height: 30px;
+                border-top-right-radius: 15px;
+                border-bottom-right-radius: 15px;
+                cursor: pointer;
+
+                span{
+                    @include display-flex(1, row);
+                    justify-content: flex-end;
+                    margin-right: 15px;
+                    color: white;
+                }
+
+                &:hover{
+                    background-color: darken($color: $orange, $amount: 3)
+                }
+            }
+
+        }
+        
+        .pagination{
+            @include display-flex(1, row);
+        }
+    }
+
+    .matches{
+        @include display-flex(5,column);
+        justify-content: stretch;
+        align-items: stretch;
+
+        .no-matches{
+            margin: 10px;
+            display: inline-flex;
+            align-items: center;
+
+            .material-icons{
+                margin-right: 10px;
+            }
+        }
+        
+        table{
+            border-collapse: collapse;
+
+            thead,tbody{
+                tr{
+                    border-bottom: solid 1px $light-gray;
+                    cursor: pointer;
+
+                    &:first-child{
+                        border-top: solid 1px $light-gray;
+                    }
+                }
+            }
+
+            thead{
+                background-color: $dark-blue;
+                color: white;
+            }
+
+            tbody{
+
+                tr{
+                    padding: 5px;
+
+                    &.selected{
+                        background-color: #f0f0f0;
+                    }
+
+                    &:active{
+                        background-color: #e0e0e0;
+                    }
+
+                    td{
+                        text-align: center;
+                        padding: 10px;
+
+                        .live{
+                            border-radius: 50%;
+                            width: 10px;
+                            height: 10px;
+                            background-color: $light-gray;
+                            margin: auto;
+
+                            &.true{
+                                background-color: #08a320;
+                            }
+                        }
+
+                        span.score{
+                            display: inline-block;
+                            padding: 2px;
+                            border: solid 1px black;
+                            border-radius: 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

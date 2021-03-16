@@ -1,0 +1,20 @@
+@import '../styles/mixins';
+@import '../styles/variables';
+
+.soccer{
+    @include display-flex(1,row);
+    background-image: linear-gradient($dark-medium-blue,$dark-blue);
+    height: calc(100vh - 60px);
+
+    app-league-list{
+        @include display-flex(1,row);
+    }
+
+    app-league-details{
+        @include display-flex(10,row);
+    }
+
+    app-match-details{
+        @include display-flex(6,row);
+    }
+}

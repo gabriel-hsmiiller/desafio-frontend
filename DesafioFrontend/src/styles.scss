@@ -4,3 +4,8 @@
 *, body {
     margin: 0;
 }
+
+table,thead,tbody,tr,td,th{
+    border: none;
+    border-collapse: collapse;
+}

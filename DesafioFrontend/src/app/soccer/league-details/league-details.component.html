@@ -1,1 +1,51 @@
-<p>league-details works!</p>
+<div class="league">
+    <div class="header">
+        <div class="date-events">
+            <p *ngIf="!changingDate" (click)="toggleChangingDate()">{{ date | date: 'EEEE, dd MMMM yyyy' | titlecase }}</p>
+            <input *ngIf="changingDate" type="date" [(ngModel)]="date" (keypress)="$event.key == 'Enter' ? toggleChangingDate() : $event" (select)="toggleChangingDate()">
+        </div>
+        <div class="events-count">
+            <div class="counter-wrap">
+                <p class="label">Jogos da liga</p>
+                <p class="counter">{{ leagueInfo.matches?.length || '-' }} JOGOS</p>
+            </div>
+        </div>
+    </div>
+    <div class="search">
+        <div class="filters">
+            <input placeholder="Pesquisar partida na liga">
+            <button title="Pesquisar"><span class="material-icons">search</span></button>
+        </div>
+        <div class="pagination"></div>
+    </div>
+    <div class="matches" *ngIf="objectKeys(_leagueInfo).length > 0 ; else noMatches">
+        <table>
+            <thead>
+                <tr>
+                    <th>Ao vivo</th>
+                    <th>Tempo</th>
+                    <th>Match</th>
+                    <th>Horário</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let match of leagueInfo.matches" [ngClass]="{'selected' : match == selectedMatch}" (click)="selectMatch(match)">
+                    <td>
+                        <div class="live" [ngClass]="{'true' : match.live}"></div>
+                    </td>
+                    <td>{{ match.time || '-' }}</td>
+                    <td [innerHTML]="getInlineInfo(match.info)"></td>
+                    <td>{{ match.date | date: 'dd/MM/yyyy HH:mm' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <ng-template #noMatches>
+        <div class="matches">
+            <div class="no-matches">
+                <span class="material-icons">warning</span> 
+                <p>Selecione uma liga ao lado para ver os jogos.</p>
+            </div>
+        </div>
+    </ng-template>
+</div>

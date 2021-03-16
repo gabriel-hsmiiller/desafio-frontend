@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-match-details',
@@ -9,7 +9,28 @@ export class MatchDetailsComponent implements OnInit {
 
   constructor() { }
 
+  @Input() 
+    set matchInfo (value) {
+      this._matchInfo = value;
+    }
+    get matchInfo() {
+      return this._matchInfo;
+    }
+
+  get home(){
+    return this.matchInfo.info.home;
+  }
+
+  get visitors(){
+    return this.matchInfo.info.visitors;
+  }
+  
+  _matchInfo: any;
+
   ngOnInit(): void {
   }
 
+  objectKeys(obj){
+    return Object.keys(obj);
+  }
 }
