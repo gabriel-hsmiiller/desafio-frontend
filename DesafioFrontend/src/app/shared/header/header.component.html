@@ -1,0 +1,41 @@
+<div class="header">
+    <div class="site-title">
+        <div class="title"><span>Livescores</span></div>
+    </div>
+    <div class="search">
+        <div class="control">
+            <input type="text" placeholder="Pesquisar">
+            <span class="material-icons" title="Pesquisar">search</span>
+        </div>
+    </div>
+    <div class="user-status">
+        <div class="notifications">
+            <div *ngIf="user.hasNotifications" class="addon-has-notifications"></div>
+            <span class="material-icons-outlined" (click)="toggleNotificationsList()" title="Notificações">notifications</span>
+        </div>
+        <div class="user-name">
+            <p>{{ user.name }}</p>
+        </div>
+        <div class="user-picture">
+            <div *ngIf="user.profilePicture !== ''; else noProfileImage" class="picture">
+                <img [src]="user.profilePicture" alt="Foto de perfil" title="Foto de perfil" />
+            </div>
+            <ng-template #noProfileImage>
+                <div class="no-picture"><p> {{ createNoProfile(user.name) }} </p></div>
+            </ng-template>
+        </div>
+        <span class="material-icons" (click)="toggleMoreOptions()" title="Mais opções">{{!showMoreOptions ? 'expand_more' : 'expand_less'}}</span>
+    </div>
+</div>
+<div class="notifications-list" *ngIf="showNotificationsList">
+    <div *ngFor="let notification of user.notifications">
+        <div>
+            <p>{{notification.title}}</p>
+            <p>{{notification.text}}</p>
+        </div>
+    </div>
+</div>
+<div class="more-options" *ngIf="showMoreOptions">
+    <p>Ver perfil</p>
+    <p>Configurações</p>
+</div>

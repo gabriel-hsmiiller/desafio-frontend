@@ -1,0 +1,81 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+$border: solid 1px rgba($light-gray, .1);
+$border-blue: solid 2px #12365C;
+
+.match{
+    @include display-flex(1,column);
+    color: white;
+    
+    .header{
+        @include display-flex(2,column);
+        
+        .score{
+            @include display-flex(1,column);
+            
+            .scores{
+                @include display-flex(2,row);
+                justify-content: space-around;
+                align-items: center;
+
+                .wrap-points{
+                    padding: 5px;
+                    border-radius: 15px;
+                    border: solid 1px rgba(white, .1);
+                    color: $orange;
+
+                    .material-icons{
+                        color: rgba(white, .1);
+                    }
+                }
+            }
+            
+            .names{
+                @include display-flex(1,row);
+                justify-content: space-around;
+                align-items: center;
+                border: {
+                    top: $border-blue;
+                    bottom: $border-blue;
+                };
+            }
+        }
+    }
+    
+    .details{
+        @include display-flex(1,column);
+        align-items: center;
+        justify-content: center;
+
+        .local{
+            display: inline-flex;
+            align-items: center;
+            padding: 5px;
+            border-bottom: $border-blue;
+
+            .material-icons{
+                margin-right: 10px;
+                color: $orange;
+            }
+        }
+    }
+    
+    .statistics{
+        @include display-flex(6,column);
+
+        table{
+            tbody{
+                tr{
+                    td{
+                        text-align: center;
+                    }
+
+                    &:nth-child(odd){
+                        background-color: rgba($light-gray, .1);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+$sidebar-color: #070A14;
+
+.sidebar {
+    position: fixed;
+    width: 5vw;
+    height: 100vh;
+    background-color: $sidebar-color;
+    @include display-flex(1, column);
+
+    .logo{
+        flex: 1;
+        max-height: 40px;
+        max-width: 40px;
+        margin: 10px auto;
+    }
+    
+    .navigation{
+        @include display-flex(3, column);
+        padding-top: 20px;
+
+        .paths{
+            color: $light-gray;
+            padding: 10px;
+            margin: 0 auto;
+            cursor: pointer;
+            border-left: solid 3px transparent;
+
+            .material-icons{
+                font-size: 32px !important;
+            }
+        }
+
+        .active{
+            color: $orange;
+            border-left-color: $orange;
+        }
+    }
+    
+    .logout{
+        flex: 1;
+        max-height: 60px;
+        max-width: 40px;
+        margin: 10px auto;
+
+        color: $light-gray;
+        margin: auto;
+        cursor: pointer;
+
+        .material-icons{
+            font-size: 32px !important;
+        }
+    }
+}

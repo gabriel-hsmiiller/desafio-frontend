@@ -1,0 +1,5 @@
+<div class="soccer">
+    <app-league-list [leagueList]="leagueList" (setLeague)="selectLeague($event)"></app-league-list>
+    <app-league-details [leagueInfo]="selectedLeague" (setMatch)="selectMatch($event)"></app-league-details>
+    <app-match-details [matchInfo]="selectedMatch" *ngIf="objectKeys(selectedMatch).length > 0"></app-match-details>
+</div>
