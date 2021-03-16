@@ -111,6 +111,7 @@ $header-color: #0A0F1E;
     background-color: $header-color;
     width: 300px;
     top: 60px;
+    z-index: 10;
 }
 
 .more-options{
@@ -123,4 +124,5 @@ $header-color: #0A0F1E;
     top: 60px;
     color: white;
     padding: 20px;
+    z-index: 10;
 }

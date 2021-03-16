@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   
-  constructor() { }
+  constructor(private _router: Router, private _route: ActivatedRoute) { }
 
   activatedRoutePath = 'soccer';
 
@@ -23,7 +24,8 @@ export class SidebarComponent implements OnInit {
   }
 
   navigate(path){
-    console.log(path)
+    this._router.navigate([`../${path}`], {relativeTo: this._route});
+    this.activatedRoutePath = path;
   }
 
   checkRoute(path){
